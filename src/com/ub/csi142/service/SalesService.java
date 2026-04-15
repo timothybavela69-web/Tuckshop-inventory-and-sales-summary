@@ -1,6 +1,6 @@
 package com.ub.csi142.service;
-public class SalesServices{
-  public SalesServices() {
+public class SalesService{
+  public SalesService() {
   }
   public void recordSale() {
     System.out.printIn("sales recorded");

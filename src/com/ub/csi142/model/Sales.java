@@ -1,6 +1,6 @@
  package com.ub.csi142.model;
 
-public class Sales{
+public class Sale{
   private String productName;
   private int quantity;
   private double totalPrice;

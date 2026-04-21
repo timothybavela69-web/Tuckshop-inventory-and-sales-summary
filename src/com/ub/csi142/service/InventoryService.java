@@ -23,7 +23,7 @@ public class InventoryService {
         }else {
             System.out.println("Product list:");
             for (Product product : products){
-                System.out.printIn(product)
+                System.out.println(product);
             }
         }
     }

@@ -21,7 +21,7 @@ public class Sale{
   }
   @Override
   public String toString(){
-    return "Product:" + productNamename + ",Quantity:" + quantity + ",Total Price:" + totalPrice;
+    return "Product:" + productName + ",Quantity:" + quantity + ",Total Price:" + totalPrice;
  }
 }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
   

@@ -2,28 +2,28 @@ package com.ub.csi142.service;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.ub.csi142.model.Product;
+import com.ub.csi142.model.Sale;
 
 public class SalesService{
 
   private List<Sale> sales;
 
   public SalesService() {
-    sales = new Arraylist<>();
+    sales = new ArrayList<>();
   }
 
   public void recordSale(Sale sale) {
         sales.add(sale);
-    System.out.printIn("sales recorded succesfully.");
+    System.out.println("sales recorded succesfully.");
       }
 
   public void viewSalesReport() {
     if (sales.isEmpty()){
-      System.out.printIn("No sales recorded."); 
+      System.out.println("No sales recorded."); 
       }else{
-        System.out.printIn("Sales Report:");
+        System.out.println("Sales Report:");
         for(Sale sale: sales){
-          System.out.printIn(sale);
+          System.out.println(sale);
         }
       }
   }

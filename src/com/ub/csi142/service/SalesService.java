@@ -14,7 +14,7 @@ public class SalesService{
 
   public void recordSale(Sale sale) {
         sales.add(sale);
-    System.out.println("sales recorded succesfully.");
+    System.out.println("sales recorded successfully.");
       }
 
   public void viewSalesReport() {

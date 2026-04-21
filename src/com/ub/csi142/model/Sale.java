@@ -7,7 +7,7 @@ public class Sale{
 
   public Sale (String productName,int quantity,double totalPrice){
   this.productName=productName;
-  this.quantity=quantity
+  this.quantity=quantity;
   this.totalPrice=totalPrice;
   }
     public String getProductName(){

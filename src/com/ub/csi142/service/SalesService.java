@@ -18,7 +18,7 @@ public class SalesService{
       }
 
   public void viewSalesReport() {
-    if (Sales.isEmpty()){
+    if (sales.isEmpty()){
       System.out.printIn("No sales recorded."); 
       }else{
         System.out.printIn("Sales Report:");

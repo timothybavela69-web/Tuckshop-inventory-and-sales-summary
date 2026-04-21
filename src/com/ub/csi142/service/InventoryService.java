@@ -21,7 +21,7 @@ public class InventoryService {
         if (products.isEmpty()){
             System.out.println("No products available.");
         }else {
-            system.out.printIn("Product list:");
+            System.out.println("Product list:");
             for (Product product : products){
                 System.out.printIn(product)
             }

@@ -10,4 +10,18 @@ public class Sale{
   this.quantity=quantity
   this.totalPrice=totalPrice;
   }
-  }  
+    public String getProductName(){
+    return productName;
+  }
+    public int getQuantity(){
+    return quantity;
+  }
+  public double getTotalPrice(){
+    return totalPrice;
+  }
+  @Override
+  public String toString(){
+    return "Product:" + productNamename + ",Quantity:" + quantity + ",Total Price:" + totalPrice;
+ }
+}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+  

@@ -27,13 +27,14 @@ public class InventoryService {
             }
         }
     }
-}
 
-public Product findProductByName(String name){
-    for(Product product : products) {
-        if (product.getName().equalsIgnoreCase(name)){
-            return product;
+
+    public Product findProductByName(String name){
+        for(Product product : products) {
+            if (product.getName().equalsIgnoreCase(name)){
+                return product;
+            }
         }
+        return null;
     }
-    return null;
 }

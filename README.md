@@ -64,3 +64,44 @@ src/com/ub/csi142
 ## 	Package: exceptions
 •	OutOfStockException – Raised when stock is insufficient.
 •	InvalidInputException – Raised when user input is invalid.
+
+# 🚀 MILESTONE 3 – IMPLEMENTATION
+
+## Features Implemented
+- Menu-driven system using a loop
+- Add Product (Bread, Coke, Fries)
+- View Products
+- Record Sales
+- View Sales Report
+
+## How the System Works
+The program runs through a menu loop where the user selects options. 
+Each option calls the appropriate service:
+- InventoryService → manages products  
+- SalesService → manages sales transactions  
+
+## OOP Implementation
+- Abstraction → Product class as a base class  
+- Inheritance → Bread, CokeDrink, Fries extend Product  
+- Encapsulation → Fields are private with controlled access  
+- Separation of Concerns → Logic handled in service classes  
+
+## Compile and Run (Command Line)
+Open terminal in the project folder and run:
+
+cd src  
+javac com/ub/csi142/app/Main.java  
+java com.ub.csi142.app.Main  
+
+## Sample Output
+--- Tuckshop Menu ---
+1. Add Product
+2. View Products
+3. Record Sale
+4. View Sales Report
+5. Exit
+
+## Status
+✔ Core functionality fully working  
+✔ Menu system operational  
+✔ Ready for further improvements in final milestone  

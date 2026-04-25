@@ -21,19 +21,20 @@ public class InventoryService {
         if (products.isEmpty()){
             System.out.println("No products available.");
         }else {
-            system.out.printIn("Product list:");
+            System.out.println("Product list:");
             for (Product product : products){
-                System.out.printIn(product)
+                System.out.println(product);
             }
         }
     }
-}
 
-public Product findProductByName(String name){
-    for(Product product : products) {
-        if (product.getName().equalsIgnoreCase(name)){
-            return product;
+
+    public Product findProductByName(String name){
+        for(Product product : products) {
+            if (product.getName().equalsIgnoreCase(name)){
+                return product;
+            }
         }
+        return null;
     }
-    return null;
 }

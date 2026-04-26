@@ -1,5 +1,7 @@
 package com.ub.csi142.service;
 
+import com.ub.csi142.exceptions.InvalidInputException;
+import com.ub.csi142.exceptions.OutOfStockException;
 import java.util.ArrayList;
 import java.util.List;
 import com.ub.csi142.model.Product;
@@ -28,7 +30,6 @@ public class InventoryService {
         }
     }
 
-
     public Product findProductByName(String name){
         for(Product product : products) {
             if (product.getName().equalsIgnoreCase(name)){
@@ -37,4 +38,26 @@ public class InventoryService {
         }
         return null;
     }
+
+    public void sellProduct(String name, int quantity)
+        throws InvalidInputException, OutOfStockException {
+
+        if (quantity <= 0) {
+            throw new InvalidInputException("Quantity must be greater than 0");
+        }
+
+        Product product = findProductByName(name);
+
+        if (product == null) {
+            throw new InvalidInputException("Product not found");
+        }
+
+        if (product.getQuantity() < quantity) {
+            throw new OutOfStockException("Not enough stock available");
+        }
+
+        product.reduceQuantity(quantity);
+        System.out.println("Sale processed successfully.");
+    }
+
 }

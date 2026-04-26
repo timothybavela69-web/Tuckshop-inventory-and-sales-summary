@@ -18,6 +18,9 @@ public abstract class Product {
   public int getQuantity(){
     return quantity;
   }
+  public void reduceQuantity(int soldQuantity) {
+    this.quantity -= soldQuantity;
+}
   @Override
   public String toString(){
     return "Name:" + name + ",Price:" + price + ",Quantity:" + quantity;

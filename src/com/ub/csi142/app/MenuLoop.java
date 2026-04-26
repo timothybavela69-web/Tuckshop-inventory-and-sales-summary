@@ -1,6 +1,9 @@
 package com.ub.csi142.app;
 
 import java.util.Scanner;
+
+import com.ub.csi142.exceptions.InvalidInputException;
+import com.ub.csi142.exceptions.OutOfStockException;
 import com.ub.csi142.model.*;
 import com.ub.csi142.service.*;
 
@@ -39,8 +42,21 @@ public class MenuLoop {
                     inventoryService.viewProducts();
                     break;
                 case 3:
-                    recordSale();
-                    break;
+                    try {
+                        System.out.print("Enter product name: ");
+                        String name = scanner.nextLine();
+
+                        System.out.print("Enter quantity: ");
+                        int quantity = Integer.parseInt(scanner.nextLine());
+
+                        inventoryService.sellProduct(name, quantity);
+
+                    } catch (InvalidInputException | OutOfStockException e) {
+                        System.out.println("Error: " + e.getMessage());
+                    } catch (NumberFormatException e) {
+                        System.out.println("Invalid number entered.");
+                    }
+                    break;                
                 case 4:
                     salesService.viewSalesReport();
                     break;

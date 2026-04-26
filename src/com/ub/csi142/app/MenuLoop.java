@@ -76,9 +76,28 @@ public class MenuLoop {
         System.out.print("Enter product type (bread/coke/fries): ");
         String type = scanner.nextLine().toLowerCase();
 
-        System.out.print("Enter name: ");
-        String name = scanner.nextLine();
+        String name;
 
+        if (type.equals("bread")) {
+            System.out.println("Choose bread type:");
+            System.out.println("1. White Bread");
+            System.out.println("2. Brown Bread");
+            System.out.print("Enter choice: ");
+
+            int breadChoice = Integer.parseInt(scanner.nextLine());
+
+            if (breadChoice == 1) {
+                name = "White Bread";
+            } else if (breadChoice == 2) {
+                name = "Brown Bread";
+            } else {
+                System.out.println("Invalid bread choice.");
+                return;
+            }
+        } else {
+            System.out.print("Enter name: ");
+            name = scanner.nextLine();
+        }
         System.out.print("Enter price: ");
         double price = scanner.nextDouble();
 

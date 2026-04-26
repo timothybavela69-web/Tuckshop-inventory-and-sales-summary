@@ -1,66 +1,109 @@
-# Tuckshop-inventory-and-sales-summary
+# Tuckshop Inventory and Sales Summary System
 
-GROUP MEMBERS:-
+## Project Overview
+This is a Java console-based application developed for the CSI142 Object Oriented Programming course.
 
-Emmanuel Tshabadira - 201805718
+The system simulates a tuckshop where the operator can stock products, record sales, and view reports. It demonstrates key Object-Oriented Programming (OOP) concepts such as classes, inheritance, abstraction, collections, and exception handling.
 
-Masedi Selinda - 202507414
+---
 
-Timothy Bavela - 202500341
+## Features
 
-Emely Mooketsa - 202503891
+- Stock products into inventory  
+- View available products  
+- Record product sales  
+- Automatically update stock after each sale  
+- Prevent sales when stock is insufficient  
+- View sales report with total revenue  
+- Handle invalid input using exceptions  
 
-PROJECT TITLE: Tuckshop Inventory and Sales Summary.
+---
 
-DOMAIN: Business and informal Trade
+## System Logic
 
-## SHORT CONCEPT NOTE
+- The **Stock Product** option is used to add inventory into the tuckshop  
+- The quantity entered represents the available stock  
+- When a sale is recorded:
+  - The system checks if the product exists  
+  - Ensures enough stock is available  
+  - Reduces stock after a successful sale  
+  - Records the sale for reporting  
 
-This project aims to develop a light weight java application that helps tuckshop owners manage stock and track sales. The system will allow users to record items, update inventory after each sale, and generate simple daily summaries. By digitizing these processes, tuckshop operators can reduce errors, avoid stockouts, and gain insights into their most profitable products. The solution is designed to be easy to use, mobile-friendly, and practical for informal traders who usually rely on manual record keeping.
+---
 
-# MILESTONE 2
+## Project Structure
 
-## Package Structure + Classes
+```
+app/
+  Main.java
+  MenuLoop.java
 
-src/com/ub/csi142
- ├── app
- │    ├── MainApp.java
- │    └── MenuLoop.java
- ├── model
- │    ├── Product.java
- │    ├── Fries.java
- │    ├── CokeDrink.java
- │    ├── Bread.java
- │    └── Sale.java
- ├── service
- │    ├── InventoryService.java
- │    └── SalesService.java
- ├── util
- │    └── InputValidator.java
- └── exceptions
-      ├── OutOfStockException.java
-      └── InvalidInputException.java
+model/
+  Product.java (abstract class)
+  Bread.java
+  CokeDrink.java
+  Fries.java
+  Sale.java
 
-## Class List:
+service/
+  InventoryService.java
+  SalesService.java
 
-## 	Package: app
-•	Main – Entry point of the program. Calls the menu loop.
-•	MenuLoop – Contains the menu loop logic.
+exceptions/
+  InvalidInputException.java
+  OutOfStockException.java
 
-## 	Package: model
-•	Product – Abstract superclass for all products.
-•	Fries – Subclass of Product representing Fries.
-•	CokeDrink – Subclass of Product representing coke drinks.
-•	Bread – Subclass of Product representing bread.
-•	Sale – Records transactions.
+util/
+  InputValidator.java
+```
 
-## 	Package: service
-•	InventoryService – Manages products.
-•	SalesService – Manages sales.
+---
 
-## 	Package: util
-•	InputValidator – Helper class for input validation.
+## How to Compile and Run
 
-## 	Package: exceptions
-•	OutOfStockException – Raised when stock is insufficient.
-•	InvalidInputException – Raised when user input is invalid.
+### Compile:
+```
+javac -d out src\com\ub\csi142\app\*.java src\com\ub\csi142\model\*.java src\com\ub\csi142\service\*.java src\com\ub\csi142\util\*.java src\com\ub\csi142\exceptions\*.java
+```
+
+### Run:
+```
+java -cp out com.ub.csi142.app.Main
+```
+
+---
+
+## Example Usage
+
+- Stock Product → Add items into inventory  
+- View Products → Check available stock  
+- Record Sale → Sell items and update stock  
+- View Sales Report → View all sales and total revenue  
+
+---
+
+## Group Members
+
+- Emmanuel Tshabadira – 201805718  
+- Masedi Selinda – 202507414  
+- Timothy Bavela – 202500341  
+- Emely Mooketsa – 202503891  
+
+---
+
+## OOP Concepts Used
+
+- Encapsulation → private fields with getters in classes  
+- Inheritance → Product → Bread, CokeDrink, Fries  
+- Abstraction → abstract Product class  
+- Polymorphism → handling different product types using Product reference  
+- Collections → ArrayList for storing products and sales  
+- Exception Handling → custom exceptions for invalid input and stock errors  
+
+---
+
+## Status
+
+✔ Fully functional  
+✔ All core features implemented  
+✔ Ready for submission  

@@ -12,18 +12,25 @@ public class SalesService{
     sales = new ArrayList<>();
   }
 
-  public void recordSale(Sale sale) {
-        sales.add(sale);
-      }
+    public void recordSale(Sale sale) {
+      sales.add(sale);
+    }
 
   public void viewSalesReport() {
-    if (sales.isEmpty()){
-      System.out.println("No sales recorded."); 
-      }else{
-        System.out.println("Sales Report:");
-        for(Sale sale: sales){
-          System.out.println(sale);
-        }
+      if (sales.isEmpty()) {
+          System.out.println("No sales recorded.");
+      } else {
+          double totalRevenue = 0;
+
+          System.out.println("=== Sales Report ===");
+
+          for (Sale sale : sales) {
+              System.out.println(sale);
+              totalRevenue += sale.getTotalPrice();
+          }
+
+          System.out.println("----------------------");
+          System.out.printf("Total Revenue: P%.2f%n", totalRevenue);
       }
   }
 }

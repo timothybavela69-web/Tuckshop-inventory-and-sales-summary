@@ -20,8 +20,9 @@ public class Sale{
     return totalPrice;
   }
   @Override
-  public String toString(){
-    return "Product:" + productName + ",Quantity:" + quantity + ",Total Price:" + totalPrice;
- }
+  public String toString() {
+      return String.format("Product: %s, Quantity: %d, Total Price: P%.2f",
+              productName, quantity, totalPrice);
+  }
 }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
   

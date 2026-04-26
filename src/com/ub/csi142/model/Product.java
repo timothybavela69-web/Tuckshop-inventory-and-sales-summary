@@ -22,7 +22,8 @@ public abstract class Product {
     this.quantity -= soldQuantity;
 }
   @Override
-  public String toString(){
-    return "Name:" + name + ",Price:" + price + ",Quantity:" + quantity;
- }
+  public String toString() {
+      return String.format("Name: %s | Price: P%.2f | Quantity: %d",
+              name, price, quantity);
+  }
 }

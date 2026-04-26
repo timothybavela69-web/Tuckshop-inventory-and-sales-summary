@@ -111,13 +111,13 @@ public class MenuLoop {
         }
 
         inventoryService.addProduct(product);
-        System.out.println("Product added successfully!");
+        System.out.println("Product stocked successfully!");
     }
     private void recordSale() {
         try {
             System.out.print("Enter product name: ");
             String name = scanner.nextLine().trim();
-            
+
             System.out.print("Enter quantity: ");
             int quantity = Integer.parseInt(scanner.nextLine());
 
@@ -127,7 +127,7 @@ public class MenuLoop {
             Sale sale = new Sale(product.getName(), quantity, total);
             salesService.recordSale(sale);
 
-            System.out.println("Sale processed successfully. Total: P" + total);
+            System.out.printf("Sale processed successfully. Total: P%.2f%n", total);
 
         } catch (InvalidInputException | OutOfStockException e) {
             System.out.println("Error: " + e.getMessage());

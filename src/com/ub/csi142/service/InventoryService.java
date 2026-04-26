@@ -16,7 +16,6 @@ public class InventoryService {
 
     public void addProduct(Product product ) {
         products.add(product);
-        System.out.println("Product added");
     }
 
     public void viewProducts() {
@@ -39,8 +38,8 @@ public class InventoryService {
         return null;
     }
 
-    public void sellProduct(String name, int quantity)
-        throws InvalidInputException, OutOfStockException {
+    public Product sellProduct(String name, int quantity)
+            throws InvalidInputException, OutOfStockException {
 
         if (quantity <= 0) {
             throw new InvalidInputException("Quantity must be greater than 0");
@@ -57,7 +56,6 @@ public class InventoryService {
         }
 
         product.reduceQuantity(quantity);
-        System.out.println("Sale processed successfully.");
+        return product;
     }
-
 }

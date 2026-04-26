@@ -24,7 +24,7 @@ public class MenuLoop {
 
         while (running) {
             System.out.println("\n--- Tuckshop Menu ---");
-            System.out.println("1. Add Product");
+            System.out.println("1. Stock Product");
             System.out.println("2. View Products");
             System.out.println("3. Record Sale");
             System.out.println("4. View Sales Report");
@@ -42,21 +42,8 @@ public class MenuLoop {
                     inventoryService.viewProducts();
                     break;
                 case 3:
-                    try {
-                        System.out.print("Enter product name: ");
-                        String name = scanner.nextLine();
-
-                        System.out.print("Enter quantity: ");
-                        int quantity = Integer.parseInt(scanner.nextLine());
-
-                        inventoryService.sellProduct(name, quantity);
-
-                    } catch (InvalidInputException | OutOfStockException e) {
-                        System.out.println("Error: " + e.getMessage());
-                    } catch (NumberFormatException e) {
-                        System.out.println("Invalid number entered.");
-                    }
-                    break;                
+                    recordSale();
+                    break;           
                 case 4:
                     salesService.viewSalesReport();
                     break;
@@ -74,49 +61,50 @@ public class MenuLoop {
 
     private void addProduct() {
         System.out.print("Enter product type (bread/coke/fries): ");
-        String type = scanner.nextLine().toLowerCase();
-
-        String name;
-
-        if (type.equals("bread")) {
-            System.out.println("Choose bread type:");
-            System.out.println("1. White Bread");
-            System.out.println("2. Brown Bread");
-            System.out.print("Enter choice: ");
-
-            int breadChoice = Integer.parseInt(scanner.nextLine());
-
-            if (breadChoice == 1) {
-                name = "White Bread";
-            } else if (breadChoice == 2) {
-                name = "Brown Bread";
-            } else {
-                System.out.println("Invalid bread choice.");
-                return;
-            }
-        } else {
-            System.out.print("Enter name: ");
-            name = scanner.nextLine();
-        }
-        System.out.print("Enter price: ");
-        double price = scanner.nextDouble();
+        String type = scanner.nextLine().toLowerCase().trim();
 
         System.out.print("Enter quantity: ");
-        int quantity = scanner.nextInt();
-        scanner.nextLine();
+        int quantity = Integer.parseInt(scanner.nextLine());
 
-        Product product = null;
+        String name;
+        double price;
+        Product product;
 
         switch (type) {
             case "bread":
+                System.out.println("Choose bread type:");
+                System.out.println("1. White Bread");
+                System.out.println("2. Brown Bread");
+                System.out.print("Enter choice: ");
+
+                int breadChoice = Integer.parseInt(scanner.nextLine());
+
+                if (breadChoice == 1) {
+                    name = "White Bread";
+                    price = 9.95;
+                } else if (breadChoice == 2) {
+                    name = "Brown Bread";
+                    price = 7.99;
+                } else {
+                    System.out.println("Invalid bread choice.");
+                    return;
+                }
+
                 product = new Bread(name, price, quantity);
                 break;
+
             case "coke":
+                name = "Coke";
+                price = 12.35;
                 product = new CokeDrink(name, price, quantity);
                 break;
+
             case "fries":
+                name = "Fries";
+                price = 15.00;
                 product = new Fries(name, price, quantity);
                 break;
+
             default:
                 System.out.println("Invalid product type!");
                 return;
@@ -125,19 +113,26 @@ public class MenuLoop {
         inventoryService.addProduct(product);
         System.out.println("Product added successfully!");
     }
-
     private void recordSale() {
-        System.out.print("Enter product name: ");
-        String name = scanner.nextLine();
+        try {
+            System.out.print("Enter product name: ");
+            String name = scanner.nextLine().trim();
+            
+            System.out.print("Enter quantity: ");
+            int quantity = Integer.parseInt(scanner.nextLine());
 
-        System.out.print("Enter quantity: ");
-        int quantity = scanner.nextInt();
-        scanner.nextLine();
+            Product product = inventoryService.sellProduct(name, quantity);
+            double total = product.getPrice() * quantity;
 
-        double price = 10;
-        double total = price * quantity;
+            Sale sale = new Sale(product.getName(), quantity, total);
+            salesService.recordSale(sale);
 
-        Sale sale = new Sale(name, quantity, total);
-        salesService.recordSale(sale);
+            System.out.println("Sale processed successfully. Total: P" + total);
+
+        } catch (InvalidInputException | OutOfStockException e) {
+            System.out.println("Error: " + e.getMessage());
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid number entered.");
+        }
     }
 }

@@ -6,6 +6,7 @@ This document shows a simple UML-style class diagram for the main classes in the
 
 ## Text-Based Class Diagram
 
+~~~text
 Product
 - name: String
 - price: double
@@ -71,6 +72,7 @@ OutOfStockException
 
 Main
 + main(args: String[]): void
+~~~
 
 ---
 
@@ -108,24 +110,29 @@ This allows the same inventory logic to work with different product types.
 
 ## Package Layout
 
-com.ub.csi142.app
+### com.ub.csi142.app
+
 - Main
 - MenuLoop
 
-com.ub.csi142.model
+### com.ub.csi142.model
+
 - Product
 - Bread
 - CokeDrink
 - Fries
 - Sale
 
-com.ub.csi142.service
+### com.ub.csi142.service
+
 - InventoryService
 - SalesService
 
-com.ub.csi142.util
+### com.ub.csi142.util
+
 - InputValidator
 
-com.ub.csi142.exceptions
+### com.ub.csi142.exceptions
+
 - InvalidInputException
 - OutOfStockException

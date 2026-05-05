@@ -10,12 +10,15 @@ The sample run demonstrates stocking products, viewing inventory, recording sale
 
 Command used to run the program:
 
+~~~bash
 java -cp out com.ub.csi142.app.Main
+~~~
 
 ---
 
 ## Sample Console Session
 
+~~~text
 --- Tuckshop Menu ---
 1. Stock Product
 2. View Products
@@ -157,6 +160,7 @@ Error: Not enough stock available
 Choose option: 5
 
 Thank you for using the Tuckshop Inventory and Sales Summary System.
+~~~
 
 ---
 
